@@ -38,7 +38,7 @@ zope.sqlalchemy >= 0.4
 transaction
 passlib
 
-txAMQP
+txAMQP < 0.8.0
 Twisted < 12.1.0
 pyOpenSSL
 
