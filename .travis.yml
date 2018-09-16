@@ -43,7 +43,7 @@ env:
 
 before_script:
   # Make sure we use the latest commits
-  - git submodule update --remote
+  - git submodule update --remote --force
 
   # Create a new file hierarchy to avoid permission issues on /etc, /var, and so on
   - mkdir -p /tmp/vigilo/etc /tmp/vigilo/var /tmp/vigilo/usr/share/locale
