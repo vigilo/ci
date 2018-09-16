@@ -14,10 +14,7 @@ addons:
       - python-lxml
       - python-psycopg2
       - python-openssl
-      - rsyslog
-
-services:
-  - rsyslog
+      - memcached
 
 notifications:
   email: false
@@ -76,6 +73,9 @@ before_script:
   - cp vigilo/vigirrd/deployment/vigirrd.conf.in                    vigilo/vigirrd/deployment/vigirrd.conf
   - cp vigilo/vigirrd/deployment/vigirrd.wsgi.in                    vigilo/vigirrd/deployment/vigirrd.wsgi
   - cp vigilo/vigirrd/deployment/cronjobs.in                        vigilo/vigirrd/deployment/vigirrd.cron
+
+  # Do not rely on /dev/log being available
+  - find vigilo/ -maxdepth 3 -name settings.ini -o -name settings_tests.ini -exec sed -ri 's~./dev/log.~("localhost", 514)~' '{}' '+'
 
   # Apply patches
   - export PYTHON_SITELIB=`python -c 'from distutils.sysconfig import get_python_lib; print get_python_lib()'`
