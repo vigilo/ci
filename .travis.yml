@@ -100,7 +100,7 @@ before_script:
   - for m in $MODULES; do cd vigilo/$m; python setup.py compile_catalog || /bin/true; cd ../..; done
 
   # Display installed packages
-  - pip list --user
+  - pip list
 
 script:
   - cd vigilo/common
