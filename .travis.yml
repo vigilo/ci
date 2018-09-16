@@ -99,6 +99,9 @@ before_script:
   # Compile the translation catalogs
   - for m in $MODULES; do cd vigilo/$m; python setup.py compile_catalog || /bin/true; cd ../..; done
 
+  # Display installed packages
+  - pip list --user
+
 script:
   - cd vigilo/common
   - cd ../common               && nosetests
