@@ -57,3 +57,4 @@ simplejson
 netifaces
 initgroups; python_version < '2.7'
 lxml
+pycparser < 2.19; python_version < '2.7'
